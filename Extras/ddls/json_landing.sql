@@ -1,0 +1,18 @@
+-- Database: FDE
+-- Schema: Landing
+
+CREATE SCHEMA IF NOT EXISTS Landing;
+
+CREATE TABLE Landing.LND_PRODUCTS_JSON (
+    id SERIAL PRIMARY KEY,
+    raw_data JSONB NOT NULL,
+    file_name VARCHAR(255),
+    loaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Landing.LND_SALES_JSON (
+    id SERIAL PRIMARY KEY,
+    raw_data JSONB NOT NULL,
+    file_name VARCHAR(255),
+    loaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

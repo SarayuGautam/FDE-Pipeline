@@ -1,0 +1,101 @@
+product_key,product_name,brand,color,unit_cost_usd,unit_price_usd,subcategory_key,subcategory,category_key,category
+PROD1101,MacBook Pro 14",Apple,Silver,1499.00,1999.00,SC001,Laptops,CAT01,Electronics
+PROD1102,iPhone 15,Apple,Space Gray,699.00,899.00,SC002,Smartphones,CAT01,Electronics
+PROD1103,Air Max 270,Nike,Black,75.00,129.99,SC006,Sneakers,CAT02,Footwear
+PROD1104,Cotton T-Shirt,Hanes,White,5.50,12.99,SC004,T-Shirts,CAT03,Apparel
+PROD1105,Kindle Paperwhite,Amazon,Black,89.99,129.99,SC010,E-Readers,CAT04,Books
+PROD1106,Galaxy Tab S8,Samsung,Graphite,499.00,699.00,SC003,Tablets,CAT01,Electronics
+PROD1107,Classic Jeans,Levi's,Blue,28.00,59.99,SC005,Jeans,CAT03,Apparel
+PROD1108,Bluetooth Speaker,JBL,Red,45.00,79.99,SC007,Audio,CAT01,Electronics
+PROD1109,Ceramic Vase,HomeGoods,White,18.50,34.99,SC009,Decor,CAT05,Home
+PROD1110,Running Shorts,Adidas,Blue,12.75,24.99,SC008,Activewear,CAT03,Apparel
+PROD1111,Desk Lamp,IKEA,Black,22.30,39.99,SC009,Decor,CAT05,Home
+PROD1112,Python Cookbook,O'Reilly,Multicolor,30.00,49.99,SC011,Programming,CAT04,Books
+PROD1113,Yoga Mat,Lululemon,Green,25.00,52.00,SC008,Activewear,CAT03,Apparel
+PROD1114,Wireless Earbuds,Sony,White,78.00,129.99,SC007,Audio,CAT01,Electronics
+PROD1115,Office Chair,Staples,Black,120.00,229.99,SC012,Furniture,CAT05,Home
+PROD1116,Hoodie Sweatshirt,Champion,Gray,20.25,44.99,SC004,T-Shirts,CAT03,Apparel
+PROD1117,External SSD,Samsung,Silver,65.00,99.99,SC001,Laptops,CAT01,Electronics
+PROD1118,Coffee Table,West Elm,Walnut,180.00,349.99,SC012,Furniture,CAT05,Home
+PROD1119,Android Development,Addison-Wesley,Blue,45.00,74.99,SC011,Programming,CAT04,Books
+PROD1120,Gaming Mouse,Logitech,Black,38.50,69.99,SC013,Accessories,CAT01,Electronics
+PROD1121,Winter Jacket,The North Face,Navy,85.00,149.99,SC014,Outerwear,CAT03,Apparel
+PROD1122,Blender,KitchenAid,Red,55.00,99.99,SC015,Appliances,CAT05,Home
+PROD1123,Notebook Set,Moleskine,Black,22.00,39.99,SC016,Stationery,CAT06,Office
+PROD1124,Running Shoes,Brooks,Blue,65.00,119.99,SC006,Sneakers,CAT02,Footwear
+PROD1125,Desk Organizer,Umbra,Silver,15.75,29.99,SC017,Organization,CAT06,Office
+PROD1126,Smart Watch,Garmin,Black,150.00,249.99,SC018,Wearables,CAT01,Electronics
+PROD1127,Throw Pillow,Crate&Barrel,Teal,18.99,34.99,SC009,Decor,CAT05,Home
+PROD1128,Backpack,Jansport,Blue,35.00,59.99,SC019,Bags,CAT07,Accessories
+PROD1129,Cookware Set,Calphalon,Silver,220.00,399.99,SC020,Kitchenware,CAT05,Home
+PROD1130,Graphic Novel,DC Comics,Multicolor,12.50,24.99,SC021,Comics,CAT04,Books
+PROD1131,Monitor,Dell,Black,180.00,279.99,SC022,Displays,CAT01,Electronics
+PROD1132,Perfume,Chanel,Clear,78.00,135.00,SC023,Beauty,CAT08,Personal Care
+PROD1133,Basketball,Nike,Orange,25.00,44.99,SC024,Sports,CAT09,Recreation
+PROD1134,Board Game,Hasbro,Multicolor,19.99,34.99,SC025,Games,CAT09,Recreation
+PROD1135,Water Bottle,Hydro Flask,Green,22.00,39.99,SC026,Drinkware,CAT10,Kitchen
+PROD1136,Keyboard,Corsair,Black,70.00,129.99,SC013,Accessories,CAT01,Electronics
+PROD1137,Sunglasses,Ray-Ban,Black,90.00,159.99,SC027,Eyewear,CAT07,Accessories
+PROD1138,Resistance Bands,SPRI,Multicolor,15.50,29.99,SC028,Fitness,CAT09,Recreation
+PROD1139,Area Rug,SAFAVIEH,Beige,120.00,219.99,SC029,Rugs,CAT05,Home
+PROD1140,Action Figure,Funko,Multicolor,8.99,17.99,SC030,Toys,CAT09,Recreation
+PROD1141,External HDD,Seagate,Black,60.00,89.99,SC001,Laptops,CAT01,Electronics
+PROD1142,Foundation,L'Oréal,Beige,14.50,29.99,SC023,Beauty,CAT08,Personal Care
+PROD1143,Dress Shirt,Brooks Brothers,White,45.00,89.99,SC031,Shirts,CAT03,Apparel
+PROD1144,Umbrella,Totes,Black,12.00,24.99,SC032,Accessories,CAT07,Accessories
+PROD1145,Wall Clock,Howard Miller,Black,40.00,69.99,SC009,Decor,CAT05,Home
+PROD1146,Novel,HarperCollins,White,10.25,19.99,SC033,Fiction,CAT04,Books
+PROD1147,Tennis Racket,Wilson,Red,85.00,149.99,SC024,Sports,CAT09,Recreation
+PROD1148,Desk Fan,Vornado,White,25.00,49.99,SC015,Appliances,CAT05,Home
+PROD1149,Wallet,Fossil,Brown,32.00,59.99,SC019,Bags,CAT07,Accessories
+PROD1150,Tea Set,Lenox,White,95.00,179.99,SC026,Drinkware,CAT10,Kitchen
+PROD1151,Printer,HP,White,110.00,189.99,SC034,Printers,CAT01,Electronics
+PROD1152,Curtains,IKEA,Blue,35.00,64.99,SC035,Home Textiles,CAT05,Home
+PROD1153,Hand Soap,Mrs. Meyer's,Clear,3.50,7.99,SC036,Cleaning,CAT08,Personal Care
+PROD1154,Garden Hose,Greenworks,Green,40.00,69.99,SC037,Garden,CAT11,Outdoor
+PROD1155,Camera,Nikon,Black,550.00,899.99,SC038,Cameras,CAT01,Electronics
+PROD1156,Blanket,Boll & Branch,Grey,65.00,119.99,SC035,Home Textiles,CAT05,Home
+PROD1157,Protein Powder,Optimum Nutrition,White,45.00,79.99,SC039,Supplements,CAT12,Health
+PROD1158,Snowboard,Burton,Multicolor,280.00,449.99,SC040,Winter Sports,CAT09,Recreation
+PROD1159,Face Mask,Curad,Blue,0.85,2.99,SC041,Medical,CAT12,Health
+PROD1160,LED Strip Lights,Philips,Multicolor,18.00,34.99,SC042,Lighting,CAT05,Home
+PROD1161,Drone,DJI,Black,350.00,599.99,SC043,Toys,CAT09,Recreation
+PROD1162,Slippers,Ugg,Brown,50.00,99.99,SC044,Footwear,CAT02,Footwear
+PROD1163,Sweater,Tommy Hilfiger,Red,35.00,69.99,SC045,Knitwear,CAT03,Apparel
+PROD1164,Router,TP-Link,Black,60.00,99.99,SC046,Networking,CAT01,Electronics
+PROD1165,Plant Pot,Lechuza,White,25.00,49.99,SC047,Garden,CAT11,Outdoor
+PROD1166,Coloring Book,Creative Haven,Multicolor,8.00,14.99,SC048,Art,CAT04,Books
+PROD1167,Tool Set,DEWALT,Red,120.00,199.99,SC049,Tools,CAT13,Hardware
+PROD1168,Sleep Mask,Bucky,Black,12.00,24.99,SC050,Wellness,CAT12,Health
+PROD1169,Phone Case,Otterbox,Black,15.00,29.99,SC013,Accessories,CAT01,Electronics
+PROD1170,Pet Bed,Furhaven,Brown,35.00,59.99,SC051,Pet,CAT14,Pets
+PROD1171,VR Headset,Oculus,Black,299.00,399.99,SC052,Virtual Reality,CAT01,Electronics
+PROD1172,Essential Oils,doTERRA,Clear,25.00,49.99,SC053,Wellness,CAT12,Health
+PROD1173,Board Shorts,Billabong,Blue,35.00,59.99,SC054,Swimwear,CAT03,Apparel
+PROD1174,Calculator,Texas Instruments,Black,15.00,29.99,SC055,Office Supplies,CAT06,Office
+PROD1175,Safety Glasses,3M,Clear,5.50,12.99,SC056,Safety,CAT13,Hardware
+PROD1176,Fire TV Stick,Amazon,Black,25.00,39.99,SC057,Streaming,CAT01,Electronics
+PROD1177,Beard Oil,Honest Amish,Amber,12.00,24.99,SC058,Grooming,CAT08,Personal Care
+PROD1178,Skateboard,Element,Multicolor,65.00,109.99,SC059,Sports,CAT09,Recreation
+PROD1179,French Press,Bodum,Red,25.00,44.99,SC060,Coffee,CAT10,Kitchen
+PROD1180,Resistance Band Set,TheraBand,Multicolor,25.00,49.99,SC028,Fitness,CAT09,Recreation
+PROD1181,Acrylic Paint Set,Liquitex,Multicolor,35.00,69.99,SC061,Art,CAT15,Arts
+PROD1182,Surge Protector,APC,Black,18.00,34.99,SC062,Electrical,CAT13,Hardware
+PROD1183,Weighted Blanket,Gravity,Grey,85.00,129.99,SC063,Wellness,CAT12,Health
+PROD1184,Fitness Tracker,Fitbit,Black,60.00,99.99,SC018,Wearables,CAT01,Electronics
+PROD1185,Reusable Bags,Stasher,Clear,12.00,22.99,SC064,Storage,CAT10,Kitchen
+PROD1186,Microphone,Blue,Black,99.00,149.99,SC065,Audio,CAT01,Electronics
+PROD1187,Hand Sanitizer,Purell,Clear,3.50,7.99,SC041,Medical,CAT12,Health
+PROD1188,Insulated Tumbler,YETI,Silver,30.00,49.99,SC026,Drinkware,CAT10,Kitchen
+PROD1189,Puzzle,Ravensburger,Multicolor,15.00,29.99,SC025,Games,CAT09,Recreation
+PROD1190,Desk Pad,SteelSeries,Black,25.00,49.99,SC066,Gaming,CAT01,Electronics
+PROD1191,Diffuser,URPOWER,White,20.00,39.99,SC067,Home,CAT05,Home
+PROD1192,Key Finder,Tile,White,25.00,34.99,SC068,Accessories,CAT01,Electronics
+PROD1193,Vegetable Seeds,Burpee,Multicolor,3.00,6.99,SC069,Garden,CAT11,Outdoor
+PROD1194,Car Charger,Anker,Black,15.00,29.99,SC070,Automotive,CAT16,Auto
+PROD1195,Wind Chimes,Woodstock,Brass,25.00,49.99,SC071,Decor,CAT05,Home
+PROD1196,Stuffed Animal,Jellycat,Multicolor,22.00,39.99,SC072,Toys,CAT09,Recreation
+PROD1197,Shower Curtain,Amazon Basics,White,12.00,24.99,SC073,Bath,CAT05,Home
+PROD1198,Whiteboard,U Brands,Black,35.00,59.99,SC074,Office Supplies,CAT06,Office
+PROD1199,Electric Toothbrush,Philips Sonicare,White,50.00,89.99,SC075,Oral Care,CAT08,Personal Care
+PROD1100,Back Massager,Sharper Image,Black,45.00,79.99,SC076,Wellness,CAT12,Health

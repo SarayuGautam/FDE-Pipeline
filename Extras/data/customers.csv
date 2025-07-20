@@ -1,0 +1,52 @@
+customer_key,gender,name,city,state_code,state,zip_code,country,continent,birthday
+CUST001,Female,Sarah Johnson,New York,NY,New York,10001,United States,North America,1985-07-12
+CUST002,Male,Michael Chen,Los Angeles,CA,California,90001,United States,North America,1990-11-23
+CUST003,Non-binary,Alex Rivera,Chicago,IL,Illinois,60601,United States,North America,1988-03-05
+CUST004,Female,Jessica Kim,Seattle,WA,Washington,98101,United States,North America,1993-09-18
+CUST005,Male,David Wilson,Miami,FL,Florida,33101,United States,North America,1979-12-30
+CUST006,Female,Emily Davis,Boston,MA,Massachusetts,02108,United States,North America,1995-02-14
+CUST007,Male,James Miller,Austin,TX,Texas,73301,United States,North America,1982-06-27
+CUST008,Non-binary,Taylor Smith,Denver,CO,Colorado,80201,United States,North America,1991-04-09
+CUST009,Female,Amanda Brown,Atlanta,GA,Georgia,30301,United States,North America,1987-10-31
+CUST010,Male,Daniel Lee,Portland,OR,Oregon,97201,United States,North America,1998-08-22
+CUST011,Female,Michelle Garcia,San Francisco,CA,California,94101,United States,North America,1984-01-15
+CUST012,Male,Robert Martinez,Philadelphia,PA,Pennsylvania,19101,United States,North America,1975-05-19
+CUST013,Non-binary,Jordan Clark,San Diego,CA,California,92101,United States,North America,1992-07-30
+CUST014,Female,Jennifer Rodriguez,Phoenix,AZ,Arizona,85001,United States,North America,1989-03-22
+CUST015,Male,Thomas Lewis,Dallas,TX,Texas,75201,United States,North America,1980-11-11
+CUST016,Female,Lauren Walker,Houston,TX,Texas,77001,United States,North America,1994-12-05
+CUST017,Male,Christopher Hall,Detroit,MI,Michigan,48201,United States,North America,1978-09-17
+CUST018,Non-binary,Riley Young,Minneapolis,MN,Minnesota,55401,United States,North America,1990-06-28
+CUST019,Female,Nicole Allen,Orlando,FL,Florida,32801,United States,North America,1986-02-14
+CUST020,Male,Kevin King,Las Vegas,NV,Nevada,89101,United States,North America,1983-08-08
+CUST021,Female,Melissa Wright,San Antonio,TX,Texas,78201,United States,North America,1991-01-25
+CUST022,Male,Joshua Scott,Nashville,TN,Tennessee,37201,United States,North America,1987-04-12
+CUST023,Non-binary,Casey Green,New Orleans,LA,Louisiana,70112,United States,North America,1996-03-07
+CUST024,Female,Ashley Adams,Columbus,OH,Ohio,43201,United States,North America,1981-07-19
+CUST025,Male,Andrew Baker,Charlotte,NC,North Carolina,28201,United States,North America,1993-10-31
+CUST026,Female,Stephanie Nelson,Indianapolis,IN,Indiana,46201,United States,North America,1989-05-22
+CUST027,Male,Timothy Carter,Memphis,TN,Tennessee,38101,United States,North America,1976-12-11
+CUST028,Non-binary,Avery Mitchell,Kansas City,MO,Missouri,64101,United States,North America,1997-08-03
+CUST029,Female,Rachel Perez,Baltimore,MD,Maryland,21201,United States,North America,1984-11-26
+CUST030,Male,Jeffrey Roberts,Louisville,KY,Kentucky,40201,United States,North America,1980-04-15
+CUST031,Female,Samantha Turner,Milwaukee,WI,Wisconsin,53201,United States,North America,1992-09-09
+CUST032,Male,Ryan Phillips,Portland,ME,Maine,04101,United States,North America,1988-06-17
+CUST033,Non-binary,Quinn Campbell,Oklahoma City,OK,Oklahoma,73101,United States,North America,1995-01-28
+CUST034,Female,Amber Evans,Raleigh,NC,North Carolina,27601,United States,North America,1983-03-05
+CUST035,Male,Gary Edwards,Virginia Beach,VA,Virginia,23451,United States,North America,1979-10-12
+CUST036,Female,Danielle Collins,Omaha,NE,Nebraska,68101,United States,North America,1994-07-24
+CUST037,Male,Peter Morris,Tampa,FL,Florida,33601,United States,North America,1981-02-18
+CUST038,Non-binary,Sage Morgan,Salt Lake City,UT,Utah,84101,United States,North America,1990-12-07
+CUST039,Female,Christine Bell,Honolulu,HI,Hawaii,96801,United States,North America,1986-08-29
+CUST040,Male,Scott Ward,Anchorage,AK,Alaska,99501,United States,North America,1977-05-03
+CUST041,Female,Tiffany Cox,Boise,ID,Idaho,83701,United States,North America,1993-04-16
+CUST042,Male,Patrick Murphy,Albuquerque,NM,New Mexico,87101,United States,North America,1988-11-21
+CUST043,Non-binary,Drew Bailey,Tucson,AZ,Arizona,85701,United States,North America,1996-06-02
+CUST044,Female,Angela Rivera,Fresno,CA,California,93701,United States,North America,1982-09-14
+CUST045,Male,Frank Cooper,St. Louis,MO,Missouri,63101,United States,North America,1974-12-25
+CUST046,Female,Katherine Reed,Sacramento,CA,California,95814,United States,North America,1989-01-07
+CUST047,Male,Raymond Price,Jacksonville,FL,Florida,32201,United States,North America,1980-07-30
+CUST048,Non-binary,Rowan Sanders,Knoxville,TN,Tennessee,37901,United States,North America,1998-02-11
+CUST049,Female,Victoria Bennett,Madison,WI,Wisconsin,53701,United States,North America,1985-05-19
+CUST050,Male,Henry Gray,Birmingham,AL,Alabama,35201,United States,North America,1976-10-23
+CUST566,Female,Isabella Davis,San Diego,CA,California,92101,United States,North America,1990-01-01

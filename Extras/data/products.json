@@ -1,0 +1,474 @@
+{
+  "products": [
+    {
+      "id":"PROD001",
+      "title": "iPhone 15 Pro",
+      "description": "Flagship smartphone with A17 chip",
+      "price": 999,
+      "discountPercentage": 8.5,
+      "rating": 4.8,
+      "stock": 87,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/1/1.jpg",
+        "https://cdn.dummyjson.com/product-images/1/2.jpg"
+      ],
+      "specs": {
+        "storage": "256GB",
+        "color": "Natural Titanium",
+        "battery": "3274mAh"
+      }
+    },
+    {
+      "id":"PROD002",
+      "title": "MacBook Air M2",
+      "description": "Ultra-thin laptop with Apple Silicon",
+      "price": 1199,
+      "discountPercentage": 10.2,
+      "rating": 4.9,
+      "stock": 42,
+      "brand": "Apple",
+      "category": "laptops",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
+      "images": ["https://cdn.dummyjson.com/product-images/2/1.jpg"],
+      "specs": {
+        "chip": "Apple M2",
+        "ram": "8GB",
+        "storage": "256GB SSD"
+      }
+    },
+    {
+      "id":"PROD003",
+      "title": "Samsung 4K Smart TV",
+      "description": "55-inch Crystal UHD 4K Smart TV",
+      "price": 549,
+      "discountPercentage": 15.0,
+      "rating": 4.5,
+      "stock": 23,
+      "brand": "Samsung",
+      "category": "televisions",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/3/1.jpg",
+        "https://cdn.dummyjson.com/product-images/3/2.jpg"
+      ],
+      "specs": {
+        "screen_size": "55-inch",
+        "resolution": "3840x2160",
+        "refresh_rate": "60Hz"
+      }
+    },
+    {
+      "id":"PROD004",
+      "title": "Nike Air Force 1",
+      "description": "Classic leather sneakers",
+      "price": 110,
+      "discountPercentage": 12.0,
+      "rating": 4.7,
+      "stock": 156,
+      "brand": "Nike",
+      "category": "footwear",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
+      "images": ["https://cdn.dummyjson.com/product-images/4/1.jpg"],
+      "specs": {
+        "color": "White",
+        "material": "Leather",
+        "sizes": ["US7", "US8", "US9", "US10"]
+      }
+    },
+    {
+      "id":"PROD005",
+      "title": "Kindle Paperwhite",
+      "description": "Waterproof e-reader with 6.8\" display",
+      "price": 139,
+      "discountPercentage": 5.5,
+      "rating": 4.6,
+      "stock": 78,
+      "brand": "Amazon",
+      "category": "e-readers",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/5/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/5/1.jpg",
+        "https://cdn.dummyjson.com/product-images/5/2.jpg"
+      ],
+      "specs": {
+        "storage": "8GB",
+        "battery_life": "10 weeks",
+        "waterproof": "IPX8"
+      }
+    },
+    {
+      "id":"PROD006",
+      "title": "Sony WH-1000XM5",
+      "description": "Noise-cancelling wireless headphones",
+      "price": 398,
+      "discountPercentage": 7.8,
+      "rating": 4.8,
+      "stock": 34,
+      "brand": "Sony",
+      "category": "audio",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/6/thumbnail.jpg",
+      "images": ["https://cdn.dummyjson.com/product-images/6/1.jpg"],
+      "specs": {
+        "battery_life": "30hrs",
+        "noise_cancellation": "Adaptive",
+        "weight": "250g"
+      }
+    },
+    {
+      "id":"PROD007",
+      "title": "Instant Pot Duo",
+      "description": "7-in-1 multi-functional pressure cooker",
+      "price": 89,
+      "discountPercentage": 9.0,
+      "rating": 4.7,
+      "stock": 67,
+      "brand": "Instant Pot",
+      "category": "kitchen",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/7/1.jpg",
+        "https://cdn.dummyjson.com/product-images/7/2.jpg"
+      ],
+      "specs": {
+        "capacity": "6qt",
+        "functions": ["Pressure Cook", "Slow Cook", "Sauté", "Steam"]
+      }
+    },
+    {
+      "id":"PROD008",
+      "title": "LEGO Star Wars Millenium Falcon",
+      "description": "Collector's edition spaceship model",
+      "price": 159,
+      "discountPercentage": 12.5,
+      "rating": 4.9,
+      "stock": 18,
+      "brand": "LEGO",
+      "category": "toys",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg",
+      "images": ["https://cdn.dummyjson.com/product-images/8/1.jpg"],
+      "specs": {
+        "pieces": 1351,
+        "min_age": "16+",
+        "dimensions": "33x22x8cm"
+      }
+    },
+    {
+      "id":"PROD009",
+      "title": "YETI Rambler 20oz",
+      "description": "Vacuum-insulated stainless steel tumbler",
+      "price": 39,
+      "discountPercentage": 4.0,
+      "rating": 4.8,
+      "stock": 210,
+      "brand": "YETI",
+      "category": "drinkware",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg",
+      "images": ["https://cdn.dummyjson.com/product-images/9/1.jpg"],
+      "specs": {
+        "capacity": "20oz",
+        "insulation": "Double-wall",
+        "color_options": ["Black", "White", "Blue"]
+      }
+    },
+    {
+      "id":"PROD0010",
+      "title": "Fitbit Charge 6",
+      "description": "Advanced health & fitness tracker",
+      "price": 159,
+      "discountPercentage": 6.3,
+      "rating": 4.5,
+      "stock": 53,
+      "brand": "Fitbit",
+      "category": "wearables",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/10/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/10/1.jpg",
+        "https://cdn.dummyjson.com/product-images/10/2.jpg"
+      ],
+      "specs": {
+        "battery_life": "7 days",
+        "features": ["Heart Rate", "GPS", "Sleep Tracking"],
+        "water_resistant": "50m"
+      }
+    },
+    {
+      "id":"PROD0011",
+      "title": "Dyson V11 Vacuum",
+      "description": "Cordless stick vacuum with laser dust detection",
+      "price": 599,
+      "discountPercentage": 8.9,
+      "rating": 4.8,
+      "stock": 27,
+      "brand": "Dyson",
+      "category": "home",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/11/thumbnail.jpg",
+      "images": ["https://cdn.dummyjson.com/product-images/11/1.jpg"],
+      "specs": {
+        "runtime": "60 mins",
+        "filtration": "HEPA",
+        "accessories": 6
+      }
+    },
+    {
+      "id":"PROD0012",
+      "title": "GoPro HERO11",
+      "description": "Action camera with 5.3K video",
+      "price": 399,
+      "discountPercentage": 7.0,
+      "rating": 4.7,
+      "stock": 41,
+      "brand": "GoPro",
+      "category": "cameras",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/12/1.jpg",
+        "https://cdn.dummyjson.com/product-images/12/2.jpg"
+      ],
+      "specs": {
+        "resolution": "5.3K60",
+        "stabilization": "HyperSmooth 5.0",
+        "waterproof": "33ft"
+      }
+    },
+    {
+      "id":"PROD0013",
+      "title": "Bose SoundLink Flex",
+      "description": "Portable Bluetooth speaker",
+      "price": 149,
+      "discountPercentage": 5.2,
+      "rating": 4.6,
+      "stock": 68,
+      "brand": "Bose",
+      "category": "audio",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/13/thumbnail.jpg",
+      "images": ["https://cdn.dummyjson.com/product-images/13/1.jpg"],
+      "specs": {
+        "battery": "12 hours",
+        "waterproof": "IP67",
+        "weight": "1.3lbs"
+      }
+    },
+    {
+      "id":"PROD0014",
+      "title": "Nespresso VertuoPlus",
+      "description": "Coffee machine with centrifusion technology",
+      "price": 179,
+      "discountPercentage": 11.3,
+      "rating": 4.7,
+      "stock": 39,
+      "brand": "Nespresso",
+      "category": "kitchen",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg",
+      "images": ["https://cdn.dummyjson.com/product-images/14/1.jpg"],
+      "specs": {
+        "cup_sizes": 5,
+        "heat_up": "15 sec",
+        "dimensions": "12.8x7x9.2 in"
+      }
+    },
+    {
+      "id":"PROD0015",
+      "title": "Canon EOS R6",
+      "description": "Mirrorless camera with 20fps shooting",
+      "price": 2499,
+      "discountPercentage": 6.7,
+      "rating": 4.9,
+      "stock": 15,
+      "brand": "Canon",
+      "category": "cameras",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/15/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/15/1.jpg",
+        "https://cdn.dummyjson.com/product-images/15/2.jpg"
+      ],
+      "specs": {
+        "sensor": "20.1MP",
+        "iso": "100-102400",
+        "video": "4K60"
+      }
+    },
+    {
+      "id":"PROD0016",
+      "title": "Apple Watch Series 8",
+      "description": "Smartwatch with temperature sensing",
+      "price": 399,
+      "discountPercentage": 5.8,
+      "rating": 4.8,
+      "stock": 62,
+      "brand": "Apple",
+      "category": "wearables",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/16/thumbnail.jpg",
+      "images": ["https://cdn.dummyjson.com/product-images/16/1.jpg"],
+      "specs": {
+        "display": "Always-On Retina",
+        "battery": "18 hours",
+        "features": ["ECG", "Fall Detection"]
+      }
+    },
+    {
+      "id":"PROD0017",
+      "title": "Samsung Galaxy Z Flip5",
+      "description": "Compact foldable smartphone",
+      "price": 999,
+      "discountPercentage": 9.2,
+      "rating": 4.6,
+      "stock": 31,
+      "brand": "Samsung",
+      "category": "smartphones",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/17/thumbnail.jpg",
+      "images": ["https://cdn.dummyjson.com/product-images/17/1.jpg"],
+      "specs": {
+        "storage": "256GB",
+        "main_screen": "6.7\" AMOLED",
+        "cover_screen": "3.4\" Super AMOLED"
+      }
+    },
+    {
+      "id":"PROD0018",
+      "title": "Microsoft Surface Pro 9",
+      "description": "2-in-1 laptop with 13\" touchscreen",
+      "price": 1299,
+      "discountPercentage": 7.5,
+      "rating": 4.7,
+      "stock": 28,
+      "brand": "Microsoft",
+      "category": "laptops",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/18/thumbnail.jpg",
+      "images": ["https://cdn.dummyjson.com/product-images/18/1.jpg"],
+      "specs": {
+        "processor": "12th Gen Intel Core i5",
+        "ram": "8GB",
+        "storage": "256GB SSD"
+      }
+    },
+    {
+      "id":"PROD0019",
+      "title": "Adidas Ultraboost 23",
+      "description": "Running shoes with energy-returning cushioning",
+      "price": 190,
+      "discountPercentage": 10.0,
+      "rating": 4.8,
+      "stock": 74,
+      "brand": "Adidas",
+      "category": "footwear",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/19/thumbnail.jpg",
+      "images": ["https://cdn.dummyjson.com/product-images/19/1.jpg"],
+      "specs": {
+        "weight": "10.7oz",
+        "drop": "10mm",
+        "technology": "Boost midsole"
+      }
+    },
+    {
+      "id":"PROD0020",
+      "title": "Sony PlayStation 5",
+      "description": "Next-gen gaming console",
+      "price": 499,
+      "discountPercentage": 0.0,
+      "rating": 4.9,
+      "stock": 22,
+      "brand": "Sony",
+      "category": "gaming",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/20/thumbnail.jpg",
+      "images": ["https://cdn.dummyjson.com/product-images/20/1.jpg"],
+      "specs": {
+        "storage": "825GB SSD",
+        "resolution": "8K",
+        "features": ["Ray tracing", "120fps"]
+      }
+    },
+    {
+      "id":"PROD0021",
+      "title": "Breville Barista Express",
+      "description": "Espresso machine with grinder",
+      "price": 699,
+      "discountPercentage": 8.3,
+      "rating": 4.8,
+      "stock": 19,
+      "brand": "Breville",
+      "category": "kitchen",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/21/thumbnail.jpg",
+      "images": ["https://cdn.dummyjson.com/product-images/21/1.jpg"],
+      "specs": {
+        "pressure": "15 bar",
+        "water_tank": "67oz",
+        "grind_settings": 18
+      }
+    },
+    {
+      "id":"PROD0022",
+      "title": "DJI Mavic 3 Pro",
+      "description": "Flagship camera drone with triple-camera system",
+      "price": 2199,
+      "discountPercentage": 5.5,
+      "rating": 4.9,
+      "stock": 11,
+      "brand": "DJI",
+      "category": "drones",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/22/thumbnail.jpg",
+      "images": ["https://cdn.dummyjson.com/product-images/22/1.jpg"],
+      "specs": {
+        "camera": "4/3 CMOS",
+        "flight_time": "43 mins",
+        "range": "15km"
+      }
+    },
+    {
+      "id":"PROD0023",
+      "title": "Lululemon Align Leggings",
+      "description": "Buttery-soft yoga pants",
+      "price": 98,
+      "discountPercentage": 0.0,
+      "rating": 4.9,
+      "stock": 105,
+      "brand": "Lululemon",
+      "category": "apparel",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/23/thumbnail.jpg",
+      "images": ["https://cdn.dummyjson.com/product-images/23/1.jpg"],
+      "specs": {
+        "material": "Nulu fabric",
+        "rise": "High-rise",
+        "length": "25\""
+      }
+    },
+    {
+      "id":"PROD0024",
+      "title": "Logitech MX Master 3S",
+      "description": "Wireless mouse for productivity",
+      "price": 99,
+      "discountPercentage": 6.1,
+      "rating": 4.8,
+      "stock": 57,
+      "brand": "Logitech",
+      "category": "accessories",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/24/thumbnail.jpg",
+      "images": ["https://cdn.dummyjson.com/product-images/24/1.jpg"],
+      "specs": {
+        "dpi": 8000,
+        "battery": "70 days",
+        "connectivity": ["Bluetooth", "USB-C"]
+      }
+    },
+    {
+      "id":"PROD0025",
+      "title": "Weber Spirit II E-310",
+      "description": "3-burner gas grill",
+      "price": 549,
+      "discountPercentage": 12.8,
+      "rating": 4.7,
+      "stock": 16,
+      "brand": "Weber",
+      "category": "outdoor",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/25/thumbnail.jpg",
+      "images": ["https://cdn.dummyjson.com/product-images/25/1.jpg"],
+      "specs": {
+        "btu": 30000,
+        "cooking_area": "529 sq in",
+        "fuel": "Propane"
+      }
+    }
+  ]
+}
