@@ -1,22 +1,25 @@
-import requests
 import logging
+
+import requests
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+
 class APIExtractor:
     def __init__(self, config, json_extractor):
-        self.endpoints_mapping = config['api']['endpoints']
+        self.endpoints_mapping = config["api"]["endpoints"]
         self.json_extractor = json_extractor
 
     def extract_endpoint(self, url, table_name):
+        table_name = table_name.lower()
         try:
             response = requests.get(url, timeout=30)
             response.raise_for_status()
 
             json_data = response.json()
 
-            self.json_extractor.load_to_landing(table_name, json_data, url)
+            self.json_extractor.load_to_landing(table_name, json_data)
 
             logger.info(f"Loaded API data from {url} to {table_name}")
 

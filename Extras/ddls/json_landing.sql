@@ -1,6 +1,3 @@
--- Database: FDE
--- Schema: Landing
-
 CREATE SCHEMA IF NOT EXISTS Landing;
 
 CREATE TABLE Landing.LND_PRODUCTS_JSON (

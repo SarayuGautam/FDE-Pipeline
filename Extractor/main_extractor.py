@@ -3,13 +3,14 @@ import os
 from string import Template
 
 import yaml
+from dotenv import load_dotenv
+from sqlalchemy import text
+
 from Extractor.api_extractor import APIExtractor
 from Extractor.csv_extractor import CSVExtractor
 from Extractor.database_connector import DatabaseConnector
-from dotenv import load_dotenv
 from Extractor.json_extractor import JSONExtractor
 from Extractor.s3_extractor import PublicS3Extractor
-from sqlalchemy import text
 
 load_dotenv()
 
@@ -18,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 
 class MainExtractor:
-    def __init__(self,    config_path = "Extractor/config.yaml"):
+    def __init__(self, config_path="Extractor/config.yaml"):
         self.config = self.load_config(config_path)
         self.setup_extractors()
 
@@ -42,54 +43,47 @@ class MainExtractor:
 
     def get_table_columns(self, table_name, schema="landing"):
         """Get the actual column names from the database table"""
+        table_name = table_name.lower()
         engine = self.db_connector.get_engine()
         try:
             with engine.connect() as conn:
                 result = conn.execute(
                     text(
                         f"""
-                    SELECT column_name
-                    FROM information_schema.columns
-                    WHERE table_schema = '{schema}'
-                    AND table_name = '{table_name.lower()}'
-                    ORDER BY ordinal_position
-                """
+                        SELECT column_name
+                        FROM information_schema.columns
+                        WHERE table_schema = '{schema}'
+                        AND table_name = '{table_name}'
+                        ORDER BY ordinal_position
+                        """
                     )
                 )
                 columns = [row[0] for row in result]
-                logger.info(
-                    f"Table {schema}.{table_name.lower()} has columns: {columns}"
-                )
+                logger.info(f"Table {schema}.{table_name} has columns: {columns}")
                 return columns
         except Exception as e:
             logger.error(f"Error getting table columns for {table_name}: {str(e)}")
             raise
-        finally:
-            engine.dispose()
 
     def truncate_table(self, table_name, schema="landing"):
-        """Centralized table truncation method"""
+        """Truncate the specified table in the given schema"""
+        table_name = table_name.lower()
         engine = self.db_connector.get_engine()
         try:
             with engine.connect() as conn:
-                conn.execute(text(f"TRUNCATE TABLE {schema}.{table_name.lower()}"))
+                conn.execute(text(f"TRUNCATE TABLE {schema}.{table_name}"))
                 conn.commit()
-            logger.info(f"Truncated table {schema}.{table_name.lower()}")
+            logger.info(f"Truncated table {schema}.{table_name}")
         except Exception as e:
             logger.error(f"Error truncating table {table_name}: {str(e)}")
             raise
-        finally:
-            engine.dispose()
 
     def extract_s3_data(self):
         logger.info("Starting S3 data extraction")
         try:
             # Truncate all S3-related tables before extraction
             for s3_key, table_name in self.config["s3"]["files"].items():
-                if s3_key.endswith(".json"):
-                    self.truncate_table(table_name, schema="Landing")
-                elif s3_key.endswith(".csv"):
-                    self.truncate_table(table_name, schema="landing")
+                self.truncate_table(table_name, schema="landing")
 
             self.s3_extractor.extract_all()
             logger.info("S3 data extraction completed successfully")
@@ -102,7 +96,7 @@ class MainExtractor:
         try:
             # Truncate all API-related tables before extraction
             for url, table_name in self.config["api"]["endpoints"].items():
-                self.truncate_table(table_name, schema="Landing")
+                self.truncate_table(table_name, schema="landing")
 
             self.api_extractor.extract_all()
             logger.info("API data extraction completed successfully")
