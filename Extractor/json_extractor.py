@@ -22,31 +22,18 @@ class JSONExtractor:
           """, (table_name,))
           columns = [row[0] for row in cursor.fetchall()]
           has_file_name = 'file_name' in columns
-
-          # Prepare dynamic insert statement
-          if has_file_name:
-              insert_stmt = f"""
-                  INSERT INTO Landing.{table_name} (raw_data, file_name)
-                  VALUES (%s, %s)
-              """
-          else:
-              insert_stmt = f"""
-                  INSERT INTO Landing.{table_name} (raw_data)
-                  VALUES (%s)
-              """
-
+    
+          insert_stmt = f"""
+              INSERT INTO Landing.{table_name} (raw_data)
+              VALUES (%s)
+          """
+         
           # Insert data
           if isinstance(json_data, list):
               for item in json_data:
-                  if has_file_name:
-                      cursor.execute(insert_stmt, (Json(item), source_info))
-                  else:
-                      cursor.execute(insert_stmt, (Json(item),))
+                  cursor.execute(insert_stmt, (Json(item),))
           else:
-              if has_file_name:
-                  cursor.execute(insert_stmt, (Json(json_data), source_info))
-              else:
-                  cursor.execute(insert_stmt, (Json(json_data),))
+              cursor.execute(insert_stmt, (Json(json_data),))
 
           conn.commit()
           logger.info(f"Loaded JSON data to {table_name}")
