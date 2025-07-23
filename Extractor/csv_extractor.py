@@ -2,9 +2,6 @@ import logging
 import re
 from datetime import datetime
 
-import pandas as pd
-from sqlalchemy import text
-
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 

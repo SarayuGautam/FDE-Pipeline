@@ -1,11 +1,13 @@
 import logging
 import os
-from string import Template
-import yaml
-from Extractor.database_connector import DatabaseConnector
-from sqlalchemy import text
 from datetime import datetime
+from string import Template
+
+import yaml
 from dotenv import load_dotenv
+from sqlalchemy import text
+
+from Extractor.database_connector import DatabaseConnector
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -24,6 +26,7 @@ def load_config(config_path):
 
 
 def get_table_columns(engine, table_name, schema):
+    table_name = table_name.lower()
     with engine.connect() as conn:
         result = conn.execute(
             text(
@@ -31,7 +34,7 @@ def get_table_columns(engine, table_name, schema):
                 SELECT column_name
                 FROM information_schema.columns
                 WHERE table_schema = '{schema}'
-                AND table_name = '{table_name.lower()}'
+                AND table_name = '{table_name}'
                 ORDER BY ordinal_position
                 """
             )
@@ -39,14 +42,26 @@ def get_table_columns(engine, table_name, schema):
         return [row[0] for row in result]
 
 
-def archive_table(engine, source_table, archive_table, source_schema="landing", archive_schema="archive"):
+def archive_table(
+    engine,
+    source_table,
+    archive_table,
+    source_schema="landing",
+    archive_schema="archive",
+):
+    source_table = source_table.lower()
+    archive_table = archive_table.lower()
     source_columns = get_table_columns(engine, source_table, source_schema)
     archive_columns = get_table_columns(engine, archive_table, archive_schema)
 
     common_columns = [col for col in source_columns if col in archive_columns]
-    columns_str = ", ".join(common_columns)
-    insert_columns = columns_str + ", archived_at"
-    select_columns = columns_str + ", :archived_at"
+    if not common_columns:
+        logger.warning(
+            f"No common columns to archive from {source_schema}.{source_table} to {archive_schema}.{archive_table}"
+        )
+        return
+    insert_columns = ", ".join(common_columns + ["archived_at"])
+    select_columns = ", ".join(common_columns) + ", :archived_at"
     params = {"archived_at": datetime.now()}
 
     sql = text(
@@ -59,7 +74,9 @@ def archive_table(engine, source_table, archive_table, source_schema="landing", 
     with engine.connect() as conn:
         result = conn.execute(sql, params)
         conn.commit()
-        logger.info(f"Archived {result.rowcount if hasattr(result, 'rowcount') else 'data'} rows from {source_schema}.{source_table} to {archive_schema}.{archive_table}")
+        logger.info(
+            f"Archived {getattr(result, 'rowcount', 'unknown')} rows from {source_schema}.{source_table} to {archive_schema}.{archive_table}"
+        )
 
 
 def main():
@@ -67,18 +84,19 @@ def main():
     db_connector = DatabaseConnector(config)
     engine = db_connector.get_engine()
 
-    landing_tables = set()
-
-    for table in config.get("s3", {}).get("files", {}).values():
-        landing_tables.add(table)
-
-    for table in config.get("api", {}).get("endpoints", {}).values():
-        landing_tables.add(table)
+    landing_tables = set(config.get("s3", {}).get("files", {}).values())
+    landing_tables.update(config.get("api", {}).get("endpoints", {}).values())
 
     for table in landing_tables:
-        archive_table_name = f"archive_{table}"
+        archive_table_name = f"archive_{table.lower()}"
         try:
-            archive_table(engine, table, archive_table_name, source_schema="landing", archive_schema="archive")
+            archive_table(
+                engine,
+                table,
+                archive_table_name,
+                source_schema="landing",
+                archive_schema="archive",
+            )
         except Exception as e:
             logger.error(f"Failed to archive {table}: {str(e)}")
 
