@@ -4,9 +4,6 @@ CREATE SCHEMA IF NOT EXISTS ARCHIVE;
 CREATE TABLE Archive.ARCHIVE_LND_PRODUCTS_API (
     id SERIAL PRIMARY KEY,
     raw_data JSONB NOT NULL,
-    api_endpoint VARCHAR(500),
-    request_timestamp TIMESTAMP,
-    response_status INTEGER,
     loaded_at TIMESTAMP,
     archived_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -15,9 +12,6 @@ CREATE TABLE Archive.ARCHIVE_LND_PRODUCTS_API (
 CREATE TABLE Archive.ARCHIVE_LND_USERS_API (
     id SERIAL PRIMARY KEY,
     raw_data JSONB NOT NULL,
-    api_endpoint VARCHAR(500),
-    request_timestamp TIMESTAMP,
-    response_status INTEGER,
     loaded_at TIMESTAMP,
     archived_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -76,7 +70,6 @@ CREATE TABLE Archive.ARCHIVE_LND_SALES_CSV (
 CREATE TABLE Archive.ARCHIVE_LND_PRODUCTS_JSON (
     id SERIAL PRIMARY KEY,
     raw_data JSONB NOT NULL,
-    file_name VARCHAR(255),
     loaded_at TIMESTAMP,
     archived_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -85,7 +78,6 @@ CREATE TABLE Archive.ARCHIVE_LND_PRODUCTS_JSON (
 CREATE TABLE Archive.ARCHIVE_LND_SALES_JSON (
     id SERIAL PRIMARY KEY,
     raw_data JSONB NOT NULL,
-    file_name VARCHAR(255),
     loaded_at TIMESTAMP,
     archived_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
