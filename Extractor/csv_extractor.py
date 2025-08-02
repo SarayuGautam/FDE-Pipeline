@@ -1,6 +1,7 @@
 import logging
 import re
 from datetime import datetime
+from sqlalchemy import text
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -19,9 +20,33 @@ class CSVExtractor:
         s1 = re.sub(r"(.)([A-Z][a-z]+)", r"\1_\2", name)
         return re.sub(r"([a-z0-9])([A-Z])", r"\1_\2", s1).lower()
 
-    def load_to_landing(self, table_name, df, source_info, main_extractor=None):
+    def get_table_columns(self, table_name, schema="landing"):
+        """Get the actual column names from the database table"""
         table_name = table_name.lower()
-        table_columns = main_extractor.get_table_columns(table_name, schema="landing")
+        engine = self.db_connector.get_engine()
+        try:
+            with engine.connect() as conn:
+                result = conn.execute(
+                    text(
+                        f"""
+                        SELECT column_name
+                        FROM information_schema.columns
+                        WHERE table_schema = '{schema}'
+                        AND table_name = '{table_name}'
+                        ORDER BY ordinal_position
+                        """
+                    )
+                )
+                columns = [row[0] for row in result]
+                logger.info(f"Table {schema}.{table_name} has columns: {columns}")
+                return columns
+        except Exception as e:
+            logger.error(f"Error getting table columns for {table_name}: {str(e)}")
+            raise
+
+    def load_to_landing(self, table_name, df):
+        table_name = table_name.lower()
+        table_columns = self.get_table_columns(table_name, schema="landing")
         engine = self.db_connector.get_engine()
         try:
 
@@ -31,12 +56,6 @@ class CSVExtractor:
                 return self.camel_to_snake(col)
 
             df.columns = [normalize_column(col) for col in df.columns]
-
-            # Add metadata columns if they exist in the table schema
-            if "loaded_at" in table_columns:
-                df["loaded_at"] = datetime.now()
-            if "source_file" in table_columns:
-                df["source_file"] = source_info
 
             # Only keep columns that exist in the table schema
             existing_columns = [col for col in df.columns if col in table_columns]

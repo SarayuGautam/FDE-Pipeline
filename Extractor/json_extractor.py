@@ -21,11 +21,7 @@ class JSONExtractor:
                 VALUES (%s)
             """
             # Insert data
-            if isinstance(json_data, list):
-                for item in json_data:
-                    cursor.execute(insert_stmt, (Json(item),))
-            else:
-                cursor.execute(insert_stmt, (Json(json_data),))
+            cursor.execute(insert_stmt, (Json(json_data),))
             conn.commit()
             logger.info(f"Loaded JSON data to {table_name}")
         except Exception as e:

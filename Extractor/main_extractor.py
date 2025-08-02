@@ -6,11 +6,11 @@ import yaml
 from dotenv import load_dotenv
 from sqlalchemy import text
 
-from Extractor.api_extractor import APIExtractor
-from Extractor.csv_extractor import CSVExtractor
-from Extractor.database_connector import DatabaseConnector
-from Extractor.json_extractor import JSONExtractor
-from Extractor.s3_extractor import PublicS3Extractor
+from api_extractor import APIExtractor
+from csv_extractor import CSVExtractor
+from database_connector import DatabaseConnector
+from json_extractor import JSONExtractor
+from s3_extractor import PublicS3Extractor
 
 load_dotenv()
 
@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 
 class MainExtractor:
-    def __init__(self, config_path="Extractor/config.yaml"):
+    def __init__(self, config_path="config.yaml"):
         self.config = self.load_config(config_path)
         self.setup_extractors()
 
@@ -37,33 +37,9 @@ class MainExtractor:
         self.json_extractor = JSONExtractor(self.db_connector)
         self.csv_extractor = CSVExtractor(self.db_connector)
         self.s3_extractor = PublicS3Extractor(
-            self.config, self.json_extractor, self.csv_extractor, self
+            self.config, self.json_extractor, self.csv_extractor
         )
         self.api_extractor = APIExtractor(self.config, self.json_extractor)
-
-    def get_table_columns(self, table_name, schema="landing"):
-        """Get the actual column names from the database table"""
-        table_name = table_name.lower()
-        engine = self.db_connector.get_engine()
-        try:
-            with engine.connect() as conn:
-                result = conn.execute(
-                    text(
-                        f"""
-                        SELECT column_name
-                        FROM information_schema.columns
-                        WHERE table_schema = '{schema}'
-                        AND table_name = '{table_name}'
-                        ORDER BY ordinal_position
-                        """
-                    )
-                )
-                columns = [row[0] for row in result]
-                logger.info(f"Table {schema}.{table_name} has columns: {columns}")
-                return columns
-        except Exception as e:
-            logger.error(f"Error getting table columns for {table_name}: {str(e)}")
-            raise
 
     def truncate_table(self, table_name, schema="landing"):
         """Truncate the specified table in the given schema"""
