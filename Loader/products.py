@@ -1,6 +1,6 @@
 from psycopg2 import sql
 
-from Loader.utils import execute_query, get_db_connection, get_entities, get_schemas
+from utils import execute_query, get_db_connection, get_entities, get_schemas
 
 ENTITY = "products"
 
