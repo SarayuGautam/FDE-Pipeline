@@ -24,3 +24,7 @@ entities:
     staging_view: stg_sales
     temp_table: tmp_sales
     target_table: fact_sales
+  categories:
+    staging_view: stg_product_categories
+    temp_table: tmp_product_categories
+    target_table: dim_product_categories
