@@ -4,10 +4,9 @@ from datetime import datetime
 from string import Template
 
 import yaml
+from database_connector import DatabaseConnector
 from dotenv import load_dotenv
 from sqlalchemy import text
-
-from Extractor.database_connector import DatabaseConnector
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
