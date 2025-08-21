@@ -3,8 +3,8 @@ import os
 from string import Template
 
 import yaml
-from dotenv import load_dotenv
 from database_connector import DatabaseConnector
+from dotenv import load_dotenv
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -61,6 +61,7 @@ def archive_table(conn, archive_table, source_table):
     query = f"""
               INSERT INTO {archive_schema}.{archive_table} ({insert_cols})
               SELECT {select_cols} FROM {source_schema}.{source_table}
+              ON CONFLICT DO NOTHING;
               """
 
     execute_query(conn, query)
