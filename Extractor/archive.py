@@ -1,106 +1,85 @@
 import logging
 import os
-from datetime import datetime
 from string import Template
 
 import yaml
 from database_connector import DatabaseConnector
 from dotenv import load_dotenv
-from sqlalchemy import text
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-CONFIG_PATH = "Extractor/config.yaml"
+CONFIG_FILE_PATH = os.path.join(os.path.dirname(__file__), "config.yaml")
 
 load_dotenv()
 
 
-def load_config(config_path):
-    with open(config_path, "r") as file:
+def load_config():
+    with open(CONFIG_FILE_PATH, "r") as file:
         config_content = file.read()
-    template = Template(config_content)
-    config_content = template.safe_substitute(os.environ)
-    return yaml.safe_load(config_content)
+        template = Template(config_content)
+        config_content = template.safe_substitute(os.environ)
+        return yaml.safe_load(config_content)
 
 
-def get_table_columns(engine, table_name, schema):
+def execute_query(conn, query, params=None):
+    """Execute SQL query. Return rows for SELECT; commit others."""
+    try:
+        with conn.cursor() as cur:
+            cur.execute(query, params)
+            if cur.description is not None:
+                return cur.fetchall()
+            conn.commit()
+    except Exception as e:
+        conn.rollback()
+        raise RuntimeError(f"Database error: {str(e)}")
+
+
+def get_table_columns(conn, table_name, schema):
     table_name = table_name.lower()
-    with engine.connect() as conn:
-        result = conn.execute(
-            text(
-                f"""
-                SELECT column_name
-                FROM information_schema.columns
-                WHERE table_schema = '{schema}'
-                AND table_name = '{table_name}'
-                ORDER BY ordinal_position
-                """
-            )
-        )
-        return [row[0] for row in result]
+    query = f"""
+            SELECT column_name
+            FROM information_schema.columns
+            WHERE table_schema = '{schema}'
+            AND table_name = '{table_name}'
+            ORDER BY ordinal_position
+            """
+    rows = execute_query(conn, query)
+    return [row[0] for row in rows]
 
 
-def archive_table(
-    engine,
-    source_table,
-    archive_table,
-    source_schema="landing",
-    archive_schema="archive",
-):
-    source_table = source_table.lower()
-    archive_table = archive_table.lower()
-    source_columns = get_table_columns(engine, source_table, source_schema)
-    archive_columns = get_table_columns(engine, archive_table, archive_schema)
+def archive_table(conn, archive_table, source_table):
 
-    common_columns = [col for col in source_columns if col in archive_columns]
-    if not common_columns:
-        logger.warning(
-            f"No common columns to archive from {source_schema}.{source_table} to {archive_schema}.{archive_table}"
-        )
-        return
-    insert_columns = ", ".join(common_columns + ["archived_at"])
-    select_columns = ", ".join(common_columns) + ", :archived_at"
-    params = {"archived_at": datetime.now()}
+    archive_schema = "archive"
+    source_schema = "landing"
 
-    sql = text(
-        f"""
-        INSERT INTO {archive_schema}.{archive_table} ({insert_columns})
-        SELECT {select_columns} FROM {source_schema}.{source_table}
-        """
-    )
+    source_columns = get_table_columns(conn, source_table, source_schema)
 
-    with engine.connect() as conn:
-        result = conn.execute(sql, params)
-        conn.commit()
-        logger.info(
-            f"Archived {getattr(result, 'rowcount', 'unknown')} rows from {source_schema}.{source_table} to {archive_schema}.{archive_table}"
-        )
+    insert_cols = ", ".join(source_columns + ["archived_at"])
+    select_cols = ", ".join(source_columns) + ", CURRENT_TIMESTAMP"
+
+    query = f"""
+              INSERT INTO {archive_schema}.{archive_table} ({insert_cols})
+              SELECT {select_cols} FROM {source_schema}.{source_table}
+              ON CONFLICT DO NOTHING;
+              """
+
+    execute_query(conn, query)
 
 
-def main():
-    config = load_config(CONFIG_PATH)
-    db_connector = DatabaseConnector(config)
-    engine = db_connector.get_engine()
+if __name__ == "__main__":
+    database_connector = DatabaseConnector(load_config())
+    conn = database_connector.get_connection()
+    landing_tables_from_s3 = load_config()["s3"]["files"].values()
+    landing_tables_from_api = load_config()["api"]["endpoints"].values()
 
-    landing_tables = set(config.get("s3", {}).get("files", {}).values())
-    landing_tables.update(config.get("api", {}).get("endpoints", {}).values())
+    landing_tables = list(landing_tables_from_s3) + list(landing_tables_from_api)
 
     for table in landing_tables:
         archive_table_name = f"archive_{table.lower()}"
         try:
-            archive_table(
-                engine,
-                table,
-                archive_table_name,
-                source_schema="landing",
-                archive_schema="archive",
-            )
+            archive_table(conn, archive_table_name, table)
+            logging.info(f"Archived {table}")
         except Exception as e:
-            logger.error(f"Failed to archive {table}: {str(e)}")
-
-    engine.dispose()
-
-
-if __name__ == "__main__":
-    main()
+            logging.error(f"Failed to archive {table}: {str(e)}")
+    conn.close()
