@@ -6,11 +6,11 @@ import yaml
 from dotenv import load_dotenv
 from sqlalchemy import text
 
-from api_extractor import APIExtractor
-from csv_extractor import CSVExtractor
-from database_connector import DatabaseConnector
-from json_extractor import JSONExtractor
-from s3_extractor import PublicS3Extractor
+from Extractor.api_extractor import APIExtractor
+from Extractor.csv_extractor import CSVExtractor
+from Extractor.database_connector import DatabaseConnector
+from Extractor.json_extractor import JSONExtractor
+from Extractor.s3_extractor import PublicS3Extractor
 
 load_dotenv()
 
@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 
 class MainExtractor:
-    def __init__(self, config_path="config.yaml"):
+    def __init__(self, config_path="Extractor/config.yaml"):
         self.config = self.load_config(config_path)
         self.setup_extractors()
 

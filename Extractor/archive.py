@@ -3,8 +3,9 @@ import os
 from string import Template
 
 import yaml
-from database_connector import DatabaseConnector
 from dotenv import load_dotenv
+
+from Extractor.database_connector import DatabaseConnector
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -67,7 +68,7 @@ def archive_table(conn, archive_table, source_table):
     execute_query(conn, query)
 
 
-if __name__ == "__main__":
+def main():
     database_connector = DatabaseConnector(load_config())
     conn = database_connector.get_connection()
     landing_tables_from_s3 = load_config()["s3"]["files"].values()
@@ -83,3 +84,7 @@ if __name__ == "__main__":
         except Exception as e:
             logging.error(f"Failed to archive {table}: {str(e)}")
     conn.close()
+
+
+if __name__ == "__main__":
+    main()
