@@ -10,13 +10,14 @@ logger = logging.getLogger(__name__)
 
 
 class PublicS3Extractor:
-    def __init__(self, config, json_extractor, csv_extractor):
+    def __init__(self, config, json_extractor, csv_extractor, parquet_extractor):
 
         self.bucket_name = config["s3"]["bucket_name"]
         self.region = config["s3"].get("region", "us-east-1")
         self.files_mapping = config["s3"]["files"]
         self.json_extractor = json_extractor
         self.csv_extractor = csv_extractor
+        self.parquet_extractor = parquet_extractor
 
     def get_public_url(self, s3_key):
         # Construct the public S3 URL
@@ -38,6 +39,9 @@ class PublicS3Extractor:
             elif s3_key.endswith(".csv"):
                 df = pd.read_csv(io.StringIO(content))
                 self.csv_extractor.load_to_landing(table_name, df)
+            elif s3_key.endswith(".parquet"):
+                df_parquet = pd.read_parquet(io.BytesIO(response.content))
+                self.parquet_extractor.load_to_landing(table_name, df_parquet)
 
             logger.info(f"Successfully processed {s3_key}")
 

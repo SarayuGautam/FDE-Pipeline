@@ -1,5 +1,4 @@
--- Landing table for product categories parquet data
-CREATE TABLE IF NOT EXISTS landing.LND_PRODUCT_CATEGORIES_PARQUET (
+CREATE TABLE IF NOT EXISTS archive.ARCHIVE_LND_PRODUCT_CATEGORIES_PARQUET (
     id BIGSERIAL PRIMARY KEY,
     category_id VARCHAR(20),
     category_name VARCHAR(255),
@@ -12,5 +11,8 @@ CREATE TABLE IF NOT EXISTS landing.LND_PRODUCT_CATEGORIES_PARQUET (
     last_updated TIMESTAMP,
     category_path VARCHAR(500),
     category_depth INTEGER,
-    loaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    loaded_at TIMESTAMP,
+    archived_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+

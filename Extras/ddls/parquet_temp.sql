@@ -1,5 +1,4 @@
-
-CREATE TABLE IF NOT EXISTS temp.TMP_PRODUCT_CATEGORIES (
+CREATE TABLE IF NOT EXISTS transform.TMP_PRODUCT_CATEGORIES (
     category_id VARCHAR(20),
     category_name VARCHAR(255),
     category_description TEXT,

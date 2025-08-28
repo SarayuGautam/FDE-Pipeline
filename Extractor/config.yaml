@@ -15,8 +15,7 @@ s3:
     CSV/customers.csv: lnd_customers_csv
     CSV/products.csv: lnd_products_csv
     CSV/sales.csv: lnd_sales_csv
-    # assignment
-    # PARQUET/product_categories.parquet: lnd_product_categories_parquet
+    PARQUET/product_categories.parquet: lnd_product_categories_parquet
 
 api:
   endpoints:

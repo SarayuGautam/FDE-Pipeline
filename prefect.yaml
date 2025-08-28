@@ -14,25 +14,24 @@ push: null
 
 # pull section allows you to provide instructions for cloning this project in remote locations
 pull:
-  - prefect.deployments.steps.git_clone:
-      repository: https://github.com/SarayuGautam/FDE-Pipeline.git
-      branch: master
+- prefect.deployments.steps.set_working_directory:
+    directory: /Users/sarayugautam/Documents/SummerClass/FDE-Pipeline
 
 # the deployments section allows you to provide configuration for deploying flows
 deployments:
-  - name: fde-pipeline
-    version: null
-    tags: []
-    concurrency_limit: null
-    description: null
-    entrypoint: pipeline.py
-    parameters: {}
-    work_pool:
-      name: FDE
-      work_queue_name: null
-      job_variables: {}
-    schedules:
-      - cron: 05 2 * * *
-        timezone: null
-        day_or: true
-        active: true
+- name: fde-pipeline
+  version: null
+  tags: []
+  concurrency_limit: null
+  description: null
+  entrypoint: pipeline.py:fde_pipeline
+  parameters: {}
+  work_pool:
+    name: FDE
+    work_queue_name: null
+    job_variables: {}
+  schedules:
+  - cron: 46 10 * * *
+    timezone: null
+    day_or: true
+    active: true

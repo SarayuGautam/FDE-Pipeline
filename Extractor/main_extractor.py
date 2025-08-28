@@ -1,16 +1,24 @@
 import logging
 import os
+import sys
+from pathlib import Path
 from string import Template
 
 import yaml
 from dotenv import load_dotenv
 from sqlalchemy import text
 
+# Ensure project root is on sys.path when running this file directly
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.append(str(PROJECT_ROOT))
+
 from Extractor.api_extractor import APIExtractor
 from Extractor.csv_extractor import CSVExtractor
 from Extractor.database_connector import DatabaseConnector
 from Extractor.json_extractor import JSONExtractor
 from Extractor.s3_extractor import PublicS3Extractor
+from Extractor.parquet_extractor import ParquetExtractor
 
 load_dotenv()
 
@@ -36,8 +44,9 @@ class MainExtractor:
         self.db_connector = DatabaseConnector(self.config)
         self.json_extractor = JSONExtractor(self.db_connector)
         self.csv_extractor = CSVExtractor(self.db_connector)
+        self.parquet_extractor = ParquetExtractor(self.db_connector)
         self.s3_extractor = PublicS3Extractor(
-            self.config, self.json_extractor, self.csv_extractor
+            self.config, self.json_extractor, self.csv_extractor, self.parquet_extractor
         )
         self.api_extractor = APIExtractor(self.config, self.json_extractor)
 

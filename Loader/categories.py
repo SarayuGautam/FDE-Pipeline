@@ -1,11 +1,5 @@
-#!/usr/bin/env python3
-"""
-Product Categories Loader for FDE Pipeline
-Students need to implement this loader for the assignment.
-"""
-
 from psycopg2 import sql
-from utils import execute_query, get_db_connection, get_entities, get_schemas
+from Loader.utils import execute_query, get_db_connection, get_entities, get_schemas
 
 ENTITY = "categories"
 
@@ -29,12 +23,12 @@ def load_categories():
             INSERT INTO {transform_table} (
                 category_id, category_name, category_description, parent_category_id,
                 category_level, sort_order, is_active, created_date, last_updated,
-                category_path, category_depth, source_system, source_loaded_at
+                category_path, category_depth, source_system
             )
             SELECT
                 category_id, category_name, category_description, parent_category_id,
                 category_level, sort_order, is_active, created_date, last_updated,
-                category_path, category_depth, source_system, source_loaded_at
+                category_path, category_depth, source_system
             FROM {staging_view}
         """
         ).format(

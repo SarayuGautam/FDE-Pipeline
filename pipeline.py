@@ -11,6 +11,7 @@ from Extractor.main_extractor import MainExtractor
 from Loader.products import load_products
 from Loader.sales import load_sales
 from Loader.users import load_users
+from Loader.categories import load_categories
 
 
 @task(retries=3, retry_delay_seconds=60)
@@ -35,8 +36,8 @@ def load_sales_task():
 
 
 @task(retries=2, retry_delay_seconds=30)
-# def load_categories_task():
-#     load_categories()
+def load_categories_task():
+    load_categories()
 
 
 @task(retries=2, retry_delay_seconds=30)
@@ -49,7 +50,7 @@ def fde_pipeline():
     extract_task()
 
     # Load categories first (dimension table)
-    # load_categories_task()
+    load_categories_task()
     products_future = load_products_task.submit()
     users_future = load_users_task.submit()
     products_future.result()

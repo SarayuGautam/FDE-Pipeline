@@ -1,12 +1,19 @@
 import logging
 import os
 from string import Template
-
+import sys
+from pathlib import Path
 import yaml
 from dotenv import load_dotenv
 
-from Extractor.database_connector import DatabaseConnector
 
+# Ensure project root is on sys.path when running this file directly
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.append(str(PROJECT_ROOT))
+
+
+from Extractor.database_connector import DatabaseConnector
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
