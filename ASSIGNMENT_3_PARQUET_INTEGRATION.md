@@ -76,3 +76,7 @@ Loader/
 1. All source code files
 2. DDL scripts for database schema and tables
 
+
+## Submission Requirements
+
+What is the revenue breakdown by product category and subcategory?

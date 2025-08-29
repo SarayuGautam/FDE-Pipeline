@@ -21,14 +21,14 @@ def load_categories():
         load_query = sql.SQL(
             """
             INSERT INTO {transform_table} (
-                category_id, category_name, category_description, parent_category_id,
-                category_level, sort_order, is_active, created_date, last_updated,
-                category_path, category_depth, source_system
+                category_id, category_description, parent_category_id,
+                category_level, created_date, last_updated,
+                category_path
             )
             SELECT
-                category_id, category_name, category_description, parent_category_id,
-                category_level, sort_order, is_active, created_date, last_updated,
-                category_path, category_depth, source_system
+                category_id, category_description, parent_category_id,
+                category_level, created_date, last_updated,
+                category_path
             FROM {staging_view}
         """
         ).format(
@@ -45,27 +45,23 @@ def load_categories():
         merge_query = sql.SQL(
             """
             INSERT INTO {target_table} (
-                category_id, category_name, category_description, parent_category_id,
-                category_level, sort_order, is_active, created_date, last_updated,
-                category_path, category_depth, source_system
+                category_id, category_description, parent_category_id,
+                category_level, created_date, last_updated,
+                category_path
             )
-            SELECT
-                category_id, category_name, category_description, parent_category_id,
-                category_level, sort_order, is_active, created_date, last_updated,
-                category_path, category_depth, source_system
+            SELECT DISTINCT ON (category_id)
+                category_id, category_description, parent_category_id,
+                category_level, created_date, last_updated,
+                category_path
             FROM {transform_table}
+            ORDER BY category_id, last_updated DESC NULLS LAST, created_date DESC NULLS LAST
             ON CONFLICT (category_id) DO UPDATE SET
-                category_name = EXCLUDED.category_name,
                 category_description = EXCLUDED.category_description,
                 parent_category_id = EXCLUDED.parent_category_id,
                 category_level = EXCLUDED.category_level,
-                sort_order = EXCLUDED.sort_order,
-                is_active = EXCLUDED.is_active,
                 created_date = EXCLUDED.created_date,
                 last_updated = EXCLUDED.last_updated,
                 category_path = EXCLUDED.category_path,
-                category_depth = EXCLUDED.category_depth,
-                source_system = EXCLUDED.source_system,
                 updated_at = CURRENT_TIMESTAMP
         """
         ).format(
